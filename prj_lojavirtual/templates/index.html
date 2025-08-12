@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block estilo %}
+<link rel="stylesheet" href="{% static 'css/loja.css' %}">
+{% endblock %}
+
+{% block conteudo %}
+<div class="container">
+    <h1>Bem-vindo à Nossa Loja Virtual</h1>
+    <p>Essa é a página principal</p>
+
+    <section class="info">
+        <h2>O que você encontra aqui?</h2>
+        <ul>
+            <li>Produtos de qualidade</li>
+            <li>Preços acessíveis</li>
+            <li>Entrega rápida e segura</li>
+        </ul>
+    </section>
+</div>
+{% endblock %}

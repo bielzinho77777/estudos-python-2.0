@@ -1,0 +1,27 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    {% block title %}
+    <title>Minha Loja</title>
+    {% endblock %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/ajuda.css' %}">
+    {%block estilo%}
+    
+    {%endblock%}
+
+</head>
+<body>
+    {%include "nav.html"%}
+
+    <main>
+        {% block conteudo %}
+        <!-- Conteúdo da página vai aqui -->
+        {% endblock %}
+    </main>
+
+    {%include "rodape.html"%}
+</body>
+</html>

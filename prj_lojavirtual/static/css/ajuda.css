@@ -1,0 +1,19 @@
+.ajuda {
+    text-align: left;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.ajuda h3 {
+    color: #0066cc;
+    margin-top: 20px;
+}
+
+.ajuda p {
+    margin: 10px 0 20px 0;
+    line-height: 1.6;
+}

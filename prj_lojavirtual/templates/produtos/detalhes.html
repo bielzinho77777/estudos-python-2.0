@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{%block estilo%}
+<link rel="stylesheet" href="{% static 'css/detalhes.css' %}">
+{% endblock %}
+
+
+{% block title %}
+    {% if categoria %}
+        <title>{{ categoria.nome }}</title>
+    {% else %}
+        <title>Produtos</title>
+    {% endif %}
+{% endblock %}
+
+{% block conteudo %}
+<div class="conteudo">
+    <div class="produto">
+        <div class="produto-card">
+            <div class="imagem">
+                <img src="{% if produto.imagem %}{{ produto.imagem.url }}{% else %}{% static 'img/default.jpg' %}{% endif %}"
+                    alt="Imagem de {{ produto.nome }}"
+                    style="height: 170px; width: auto;">
+            </div>
+            <div class="informacoes">
+                <h3>{{ produto.nome }}</h3>
+                <h6>
+                    <a href="{{ produto.categoria.get_absolute_url }}">
+                        {{ produto.categoria }}
+                    </a>
+                </h6>
+                <p class="preco">R$ {{ produto.preco }}</p>
+                <form action="{%url 'carrinho:adicionar_ao_carrinho' produto.id%}" method="post">
+                    {{form_produto_carrinho}}
+                    {%csrf_token%}
+                    <input type="submit" value="Adicionar ao carrinho">
+                </form>
+                <p class="descricao">{{ produto.descricao|safe|linebreaksbr }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

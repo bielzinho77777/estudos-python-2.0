@@ -1,0 +1,73 @@
+{%extends "base.html"%}
+{%load static%}
+{%block estilo%}
+<link rel="stylesheet" href="{% static 'css/carrinho/principal.css' %}">
+{%endblock%}
+
+{%block title%}
+    <title>Seu carrinho de compras</title>
+{%endblock%}
+
+{% block conteudo %}
+<div style="margin: 40px;">
+
+    <h2>Seu carrinho de compras</h2>
+    <div style="float: right;">
+        {% with total_de_itens=carrinho|length %}
+            {% if carrinho|length > 0 %}
+                <a href="{% url 'carrinho:detalhes_carrinho' %}" style="color: black; text-decoration: none;">
+                    {{ total_de_itens }} item{{ total_de_itens|pluralize }}
+                    - R$ {{ carrinho.get_total_geral }}
+                </a>
+            {% else %}
+                <p>Seu carrinho está vazio.</p>
+            {% endif %}
+        {% endwith %}
+    </div>
+
+    <table border="1" cellpadding="10" cellspacing="0" style="width: 100%; margin-top: 40px; background-color: #F0F0F0;">
+        <thead style="background-color: #D0E8F2;">
+            <tr>
+                <th>Produto</th>
+                <th>Quantidade</th>
+                <th>Remover</th>
+                <th>Preço unitário</th>
+                <th>Subtotal</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in carrinho %}
+                {% with produto=item.produto %}
+                    <tr>
+                        <td>{{ produto.nome }}</td>
+                        <td>
+                            <form action="{% url 'carrinho:adicionar_ao_carrinho' produto.id %}" method="post">
+                                {% csrf_token %}
+                                {{ item.formulario_adicionar_produto_ao_carrinho.quantidade }}
+                                {{ item.formulario_adicionar_produto_ao_carrinho.atualizar }}
+                                <input type="submit" value="Atualizar">
+                            </form>
+                        </td>
+                        <td>
+                            <a href="{% url 'carrinho:remover_do_carrinho' produto.id %}">Remover</a>
+                        </td>
+                        <td>R$ {{ item.preco }}</td>
+                        <td>R$ {{ item.subtotal }}</td>
+                    </tr>
+                {% endwith %}
+            {% endfor %}
+
+            <tr style="background-color: #D0E8F2;">
+                <td colspan="4" style="text-align: right;"><b>Total:</b></td>
+                <td><b>R$ {{ carrinho.get_total_geral }}</b></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div style="margin-top: 20px; text-align: right;">
+        <a href="{% url 'main:listar_produtos' %}">Comprar mais produtos</a>
+        <a href="{% url 'pedidos:criar_pedido' %}">Finalizar</a>
+    </div>
+</div>
+{% endblock %}
+

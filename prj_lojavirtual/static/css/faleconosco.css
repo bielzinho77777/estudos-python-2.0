@@ -1,0 +1,16 @@
+
+.btn-primary {
+    background-color: #3399ff; /* azul claro */
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #1a75d1; /* azul mais escuro no hover */
+}

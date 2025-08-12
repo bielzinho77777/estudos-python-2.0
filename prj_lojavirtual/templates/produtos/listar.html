@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{%block estilo%}
+<link rel="stylesheet" href="{% static 'css/listar.css' %}">
+{% endblock %}
+
+{% block title %}
+    <title>{% if categoria %}{{ categoria.nome }}{% else %}Produtos{% endif %}</title>
+{% endblock %}
+
+{% block conteudo %}
+<link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+
+<div class="pagina-produtos">
+    <div class="conteudo-principal">
+        {% for produto in lista_produtos %}
+            <div class="produto-card">
+                <a href="{{ produto.get_absolute_url }}">
+                    <img src="{% if produto.imagem %}{{ produto.imagem.url }}{% else %}{% static 'img/default.jpg' %}{% endif %}"
+                        alt="Imagem de {{ produto.nome }}">
+                </a>
+                <div class="produto-info">
+                    <h3>
+                        <a href="{{ produto.get_absolute_url }}">{{ produto.nome }}</a>
+                    </h3>
+                    <p>R$ {{ produto.preco }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="sidebar">
+        <h4>Categorias</h4>
+        <ul>
+            <li {% if not categoria %}class="ativo"{% endif %}>
+                <a href="{% url 'main:listar_produtos'%}">Todos</a>
+            </li>
+            {% for c in lista_categorias %}
+                <li {% if categoria.slug == c.slug %}class="ativo"{% endif %}>
+                    <a href="{{ c.get_absolute_url }}">{{ c.nome }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}
+

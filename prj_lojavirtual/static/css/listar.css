@@ -1,0 +1,97 @@
+.pagina-produtos {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    background-color: #eee;
+}
+
+/* Conteúdo principal ocupa mais espaço */
+.conteudo-principal {
+    flex: 3;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Cada card de produto */
+.produto-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    width: calc(33.333% - 13.33px); /* 3 cards por linha com espaçamento */
+    padding: 15px;
+    box-sizing: border-box;
+    transition: transform 0.2s;
+}
+
+.produto-card:hover {
+    transform: scale(1.03);
+}
+
+.produto-card img {
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.produto-info h3 {
+    margin: 10px 0 5px;
+    font-size: 18px;
+}
+
+.produto-info p {
+    color: #4a148c;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* Sidebar estilizada do jeito que você já tinha */
+.sidebar {
+    flex: 1;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 12px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    height: fit-content;
+}
+
+.sidebar h4 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #333;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 5px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar li {
+    margin-bottom: 12px;
+}
+
+.sidebar li a {
+    text-decoration: none;
+    color: #4a148c;
+    font-size: 16px;
+    transition: color 0.3s, padding-left 0.3s;
+    display: block;
+    padding: 5px 10px;
+    border-radius: 6px;
+}
+
+.sidebar li a:hover {
+    color: #fff;
+    background-color: #7b1fa2;
+    padding-left: 15px;
+}
+
+.sidebar .ativo a {
+    font-weight: bold;
+    color: #fff;
+    background-color: #6a1b9a;
+}

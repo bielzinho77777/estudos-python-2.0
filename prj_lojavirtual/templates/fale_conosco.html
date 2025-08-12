@@ -1,0 +1,12 @@
+{%extends "base.html"%}
+{%block estilo%}
+{%load static%}
+<link rel="stylesheet" href="{% static 'css/faleconosco.css' %}">
+{%endblock%}
+{% block conteudo %}
+<form method="POST" action="">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit" class="btn btn-primary" >Enviar</button>    
+</form>
+{% endblock %}
