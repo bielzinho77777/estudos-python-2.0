@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Minha Agenda{% endblock %}</title>
+    {%block cabeca%}
+
+    {%endblock%}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+<body>
+    <div class="container">
+        
+        {%include 'navbase.html' %}
+
+        {% block conteudo %}
+        <main class="conteudo">
+            <h1>Bem-vindo à sua Agenda!</h1>
+            <p>Aqui você verá seus compromissos diários.</p>
+            {%for evento in eventos%}
+            <div class="evento-bloco{%if evento.status%} concluido {%else%} nao-concluido{%endif%}">
+                <div class="evento-info">
+                    <p>{{evento.id}} - {{evento.titulo}} - {{ evento.get_prioridade_display }}</p>
+                </div>
+                <a href="{% url 'detalhes_evento' id=evento.id %}" class="botao-detalhes{%if evento.status%} concluido {%else%} nao-concluido{%endif%}">Detalhes</a>
+            
+            </div>
+            {%endfor%}
+
+            <a href="{% url 'adicionar_eventos' %}" class="btn-adicionar-tarefa" title="Adicionar Tarefa">+</a>
+            
+        </main>
+        {% endblock %}
+
+        {% block informacoes %}
+        {%include 'informacoesbase.html'%}
+        {% endblock %}
+        
+    </div>
+</body>
+</html>

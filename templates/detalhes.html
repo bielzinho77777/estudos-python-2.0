@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Detalhes do Evento{% endblock %}
+{% block cabeca %}
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/detalhes.css' %}">
+
+{% endblock %}
+{% block conteudo %}
+<main class="conteudo">
+    <h1>Evento #{{ evento.id }}</h1>
+
+    <div class="evento">
+        <h2>{{ evento.titulo }}</h2>
+        <p><strong>Prioridade:</strong> {{ evento.get_prioridade_display }}</p>
+        <p><strong>Data de inicio:</strong> {{ evento.data_inicio }}</p>
+        <p><strong>Data para terminar:</strong> {{ evento.data_fim }}</p>
+        <form method="POST">
+            {% csrf_token %}
+            <label>
+                <input type="checkbox" name="status" onchange="this.form.submit()" {% if evento.status %}checked{% endif %}>
+                Marcar como feito
+            </label>
+        </form>
+
+        
+        <p><strong>Descrição:</strong> {{ evento.descricao }}</p>
+        <a href="{% url 'excluir_evento' id=evento.id %}" 
+            onclick="return confirm('Tem certeza que quer excluir?');"
+            class="btn-excluir">
+        Excluir
+        </a>
+
+    </div>
+
+    <a href="{% url 'index' %}" class="btn-voltar">← Voltar</a>
+</main>
+{% endblock %}

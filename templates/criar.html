@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Adicionar Evento{% endblock %}
+{% block cabeca %}
+    <link rel="stylesheet" href="{% static 'css/criar.css' %}">
+{% endblock %}
+
+{% block conteudo %}
+<main class="conteudo">
+    <h1>Adicionar Novo Evento</h1>
+    <form action="." method="post" class="form-evento">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit" class="btn-salvar">Salvar Evento</button>
+    </form>
+</main>
+{% endblock %}
+
+{% block informacoes %}
+{% endblock %}
+

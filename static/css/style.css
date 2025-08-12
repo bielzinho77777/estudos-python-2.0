@@ -1,0 +1,239 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Layout principal */
+.container {
+    display: flex;
+    min-height: 100vh;
+    padding: 30px;
+    gap: 25px;
+    background-color: #e5e7eb;
+}
+
+/* Barra lateral esquerda */
+.sidebar-esquerda {
+    width: 20%;
+    background: linear-gradient(135deg, #4a90e2, #357abd);
+    color: white;
+    padding: 30px 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.sidebar-esquerda h2 {
+    margin-bottom: 25px;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.sidebar-esquerda ul {
+    list-style: none;
+    margin-top: 15px;
+}
+
+.sidebar-esquerda li {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.sidebar-esquerda a {
+    color: #e0e7ff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.sidebar-esquerda a:hover {
+    color: #cbd5e1;
+    text-decoration: underline;
+}
+
+/* Conteúdo central */
+.conteudo {
+    width: 60%;
+    background-color: white;
+    padding: 40px 35px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    position: relative;
+}
+
+.conteudo h1 {
+    margin-bottom: 30px;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #222;
+}
+
+.conteudo p {
+    margin-bottom: 22px;
+    font-size: 1.15rem;
+    color: #444;
+}
+
+.conteudo p + a {
+    display: inline-block;
+    margin-bottom: 18px;
+    color: #2563eb;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.conteudo p + a:hover {
+    color: #1e40af;
+    text-decoration: underline;
+}
+
+/* Barra lateral direita */
+.sidebar-direita {
+    width: 20%;
+    background-color: #fff;
+    padding: 30px 25px;
+    border-radius: 15px;
+    border-left: 3px solid #2563eb;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    color: #222;
+}
+
+.sidebar-direita h2 {
+    margin-bottom: 25px;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.sidebar-direita p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .sidebar-esquerda,
+    .sidebar-direita,
+    .conteudo {
+        width: 100%;
+    }
+}
+
+/* Botão adicionar tarefa - redondo e no canto direito do conteúdo */
+.btn-adicionar-tarefa {
+    position: absolute;
+    right: 35px;
+    bottom: 35px;
+    width: 55px;
+    height: 55px;
+    background-color: #2563eb;
+    color: white;
+    font-size: 30px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 55px;
+    border-radius: 50%;
+    text-decoration: none;
+    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.6);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    z-index: 20;
+}
+
+.btn-adicionar-tarefa:hover {
+    background-color: #1e40af;
+    box-shadow: 0 7px 20px rgba(30, 64, 175, 0.8);
+}
+
+/* Para que o main.conteudo seja posição referência */
+main.conteudo {
+    position: relative;
+}
+.evento-bloco {
+    max-width: 100%;
+    word-wrap: break-word;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 20px 25px;
+    margin-bottom: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    transition: box-shadow 0.3s ease;
+}
+.evento-bloco.concluido {
+    background-color: #a8e6a3; /* verde claro suave */
+    color: #2f6627; /* verde escuro para texto */
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(46, 125, 50, 0.3);
+    font-weight: 600;
+}
+.evento-bloco.nao-concluido {
+    background-color: #f8d7da; /* vermelho bem leve, tom pastel */
+    color: #842029; /* vermelho escuro para o texto */
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(133, 30, 44, 0.3);
+    font-weight: 600;
+}
+
+
+.evento-bloco:hover {
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.evento-info {
+    font-size: 1.1rem;
+    color: #333;
+    font-weight: 600;
+}
+
+.evento-link {
+    text-decoration: none;
+    color: #2563eb;
+    font-weight: 700;
+    border: 2px solid #2563eb;
+    padding: 6px 12px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.evento-link:hover {
+    background-color: #2563eb;
+    color: white;
+}
+
+.botao-detalhes {
+    padding: 8px 16px;
+    background-color: #4CAF50; /* verde */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+.botao-detalhes.nao-concluido {
+    background-color: #f8d7da; /* vermelho bem leve, tom pastel */
+    color: #842029; /* vermelho escuro para o texto */
+}
+.botao-detalhes:hover {
+  background-color: #45a049; /* verde mais escuro no hover */
+}

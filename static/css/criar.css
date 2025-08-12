@@ -1,0 +1,54 @@
+/* Container principal */
+.conteudo {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Título */
+.conteudo h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Formulário */
+.form-evento {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Labels */
+.form-evento label {
+    font-weight: bold;
+    color: #444;
+}
+
+/* Inputs e textarea */
+.form-evento input,
+.form-evento textarea,
+.form-evento select {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Botão salvar */
+.btn-salvar {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btn-salvar:hover {
+    background-color: #45a049;
+}
