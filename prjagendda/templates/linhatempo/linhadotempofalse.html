@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Linha do Tempo{% endblock %}
+
+{% block cabeca %}
+<link rel="stylesheet" href="{% static 'css/linhatempo/linha_tempo.css' %}">
+{% endblock %}
+{%block navbase%}
+{%endblock%}
+{% block conteudo %}
+<main class="conteudo">
+
+    <div class="timeline-navbar">
+        <a href="{% url 'linha-tempo-true' %}" class="nav-btn concluido">Tarefas Concluídas</a>
+        <a href="{% url 'linha-tempo-false' %}" class="nav-btn nao-concluido">Tarefas Não Concluídas</a>
+    </div>
+
+    <a href="{% url 'compromissos' %}" class="btn-voltar">VOLTAR</a>
+
+    <div class="timeline-horizontal">
+        {% for objeto in page.object_list %}
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <h2>{{ objeto }}</h2>
+                <span class="data">{{ objeto.data_fim }}</span><br>
+                <button class="btn-detalhes"><a href="{% url 'detalhes_evento' id=objeto.id %}">detalhes</a></button>
+            </div>
+        </div>
+        {% empty %}
+        <p>Nenhum evento encontrado.</p>
+        {% endfor %}
+    </div>
+
+    <div class="paginacao">
+        {% if page.has_previous %}
+        <a href="{% url 'linha-tempo-false' %}?page={{ page.previous_page_number }}" class="btn-paginacao">Anterior</a>
+        {% endif %}
+        
+        {% if page.has_next %}
+        <a href="{% url 'linha-tempo-false' %}?page={{ page.next_page_number }}" class="btn-paginacao">Seguinte</a>
+        {% endif %}
+    </div>
+</main>
+{% endblock %}
+{% block informacoes %}
+{% endblock %}
