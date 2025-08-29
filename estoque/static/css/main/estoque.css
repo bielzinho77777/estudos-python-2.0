@@ -1,0 +1,159 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+body {
+font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+background: #efefef; 
+color: #222;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+line-height: 1.35;
+}
+
+header {
+background: #4d4d4d; 
+color: #fff;
+padding: 20px 0 10px;
+box-shadow: 0 2px 0 rgba(0,0,0,0.25);
+}
+.div{
+width: 1100px;
+max-width: calc(100% - 40px);
+margin: 0 auto;
+text-align: center;
+}
+.estoque{
+
+    font-size: 25px;
+}
+
+.site-title {
+font-size: 36px;
+margin-bottom: 8px;
+font-weight: 800;
+letter-spacing: 1px;
+color: #ffffff;
+text-shadow: 0 1px 0 rgba(255,255,255,0.05);
+}
+
+.top-nav {
+display: flex;
+justify-content: center;
+gap: 28px;
+font-size: 14px;
+}
+.top-nav a {
+color: rgba(255,255,255,0.8);
+text-decoration: none;
+padding: 4px 6px;
+}
+
+main{
+width: 1100px;
+max-width: calc(100% - 40px);
+margin: 28px auto;
+display: grid;
+grid-template-columns: 1fr 320px; 
+gap: 32px;
+align-items: start;
+}
+
+section {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 26px;
+}
+
+article {
+background: #fff;
+border-radius: 12px;
+padding: 16px;
+box-shadow: 0 0 0 1px rgba(0,0,0,0.03), 0 8px 18px rgba(0,0,0,0.04);
+min-height: 320px;
+display: flex;
+flex-direction: column;
+gap: 12px;
+}
+
+.Produto1 .div2 {
+width: 100%;
+border-radius: 10px;
+overflow: hidden;
+display:flex;
+align-items:center;
+justify-content:center;
+background: #f8f8f8;
+box-shadow: 0 0 0 6px rgba(0,0,0,0.02) inset;
+flex: 1 1 auto;
+}
+.Produto1 .div2  {
+width: 100%;
+height: auto;
+display: block;
+object-fit: cover;
+}
+
+.titulo {
+font-size: 16px;
+margin-top: 6px;
+}
+.titulo a {
+color: #4b2a88; 
+text-decoration: underline;
+font-weight: 600;
+}
+
+.preco{
+font-weight: 700;
+margin-top: auto; 
+color: #1f2937;
+}
+
+
+.fotos {
+background: #ffffff;
+border-radius: 12px;
+padding: 20px;
+box-shadow: 0 0 0 1px rgba(0,0,0,0.03), 0 4px 12px rgba(0,0,0,0.03);
+}
+.catergoria-titulo {
+font-size: 20px;
+font-weight: 700;
+color: #222;
+margin-bottom: 12px;
+position: relative;
+padding-bottom: 12px;
+}
+
+.catergoria-titulo::after {
+content: "";
+position: absolute;
+right: 0;
+bottom: 6px;
+width: 40%;
+height: 1px;
+background: rgba(0,0,0,0.08);
+}
+
+cartegtoria-lista {
+display: flex;
+flex-direction: column;
+gap: 14px;
+}
+
+.mouse {
+
+display: block;
+padding: 8px 12px;
+border-radius: 8px;
+text-decoration: none;
+color: #6b7280;
+font-size: 15px;
+}
+
+
+.mouse:hover{
+color: white;
+background-color: #4b2a88;
+
+
+}

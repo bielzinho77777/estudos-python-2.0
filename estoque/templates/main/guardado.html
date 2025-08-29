@@ -1,0 +1,62 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HTML Simples — Sem CSS</title>
+    <link rel="stylesheet" href="{% static 'css/main/styledoindex.css' %}">
+    
+</head>
+<body>
+    <header>
+        <h1>Meu HTML Simples</h1>
+        <nav>
+            <a href="#home">Início</a> |
+            <a href="#sobre">Sobre</a> |
+            <a href="#contato">Contato</a>
+        </nav>
+    </header>
+
+    <main>
+        <a href="{% url 'adicionar'%}">adicionar</a> 
+        {% for objeto in produtos %}
+        <br>
+
+        {{objeto.nome}}
+        {{objeto.categoria}}
+        {{objeto.estoque}}
+        
+        <a href="{% url 'detalhes' objeto.id %}">detalhes</a>
+        {% endfor %}
+        <br>
+        <br>
+
+        <a href="{% url 'index' %}">todos</a>
+        {% for categoria in categorias %}
+            <a href="{% url 'index' categoria.nome %}">{{categoria.nome}}</a>
+        {%endfor%}
+
+    </main>
+    
+
+</body>
+</html>
+
+
+{% load static %}
+<h1>{{objeto.nome}}</h1>
+<h1>{{objeto.categoria}}</h1>
+<h1>{{objeto.estoque}}</h1>
+<img src="{% if objeto.imagem %}{{ objeto.imagem.url }}{% else %}{% static 'img/default.jpg' %}{% endif %}">
+
+
+<a href="{% url 'excluir' objeto.id %}" onclick="return confirm('Tem certeza que quer excluir?');">excluir</a>
+{% if messages %}
+    <ul>
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}

@@ -1,0 +1,51 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Minha Loja - Produtos</title>
+<link rel="stylesheet" href="{% static 'css/main/estoque.css' %}" />
+</head>
+<body>
+
+<header >
+    <div class="div">
+    <h1 class="site-title">Estoque</h1>
+    <nav class="top-nav">
+    <a href="" class="estoque">Gerenciamento</a>
+
+    </nav>
+    </div>
+</header>
+
+<main>
+    
+    <section aria-label="Produtos">
+
+    <article class="Produto1">
+    {% for objeto in produtos %}
+    <div class="thumb">
+    <img src="{% if objeto.imagem %}{{ objeto.imagem.url }}{% else %}{% static 'img/default.jpg' %}{% endif %}">
+    </div>
+    <h3 class="product-title"><a href="{% url 'detalhes' objeto.id %}">{{objeto.nome}}</a></h3>
+    </article>
+    
+    {% endfor %}
+    
+</section>
+
+<aside  aria-label="Categorias e filtros">
+<div class="fotos">
+<h2 class="catergoria-titulo">Categorias</h2>
+<nav class="cartegtoria-lista" aria-label="Categorias de produtos">
+<a  class= "mouse" href="{% url 'index' %}">todos</a>
+{% for categoria in categorias %}
+    <a class= "mouse" href="{% url 'index' categoria.nome %}">{{categoria.nome}}</a>
+{%endfor%}
+</nav>
+</div>
+</aside>
+</main>
+

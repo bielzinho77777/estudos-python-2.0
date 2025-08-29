@@ -1,0 +1,58 @@
+<!-- Gerenciamento De estoque -->
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de Estoque</title>
+    <link rel="stylesheet" href="{% static 'css/main/gerenciar.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+        <h1>Minha Loja</h1>
+        <div class="textos-nav">
+            <h2><a href="estoque.html">Estoque</a></h2>
+            <h2><a href="gerenciamento.html">Gerenciamento</a></h2>
+        </div>
+    </nav>
+    </header>
+
+
+    <section>
+        <main class="central">
+            <div>
+                <h1>Gerenciamento de estoque</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Produtos</th>
+                            <th>Quantidade</th>
+                            <th>Remover</th>
+                            <th>Categoria</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{objeto.nome}}</td>
+                            <td>{{objeto.estoque}}</td>
+                            <td><a href="{% url 'excluir' objeto.id %}" onclick="return confirm('Tem certeza que quer excluir?');">excluir</a></td>
+                            <td>{{objeto.categoria}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div>
+                    
+                    <button class="button-add">
+                        <a href="{% url 'adicionar'%}">adicionar</a> 
+                        
+                    </button>
+                </div>
+            </div>
+        </main>
+    </section>
+</body>
+</html>
