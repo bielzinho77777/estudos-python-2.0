@@ -1,0 +1,41 @@
+{
+    "1": {
+        "titulo": "homem",
+        "autor": {
+            "1": {
+                "nome": "vovo",
+                "datanascimento": "17/12/1940",
+                "listalivrosautor": []
+            }
+        },
+        "genero": "gabs",
+        "quantidade_estoque": 1,
+        "status_disponivel": true
+    },
+    "2": {
+        "titulo": "pc",
+        "autor": {
+            "1": {
+                "nome": "vovo",
+                "datanascimento": "17/12/1940",
+                "listalivrosautor": []
+            }
+        },
+        "genero": "gabinete",
+        "quantidade_estoque": 1,
+        "status_disponivel": true
+    },
+    "3": {
+        "titulo": "macaco",
+        "autor": {
+            "1": {
+                "nome": "vovo",
+                "datanascimento": "17/12/1940",
+                "listalivrosautor": []
+            }
+        },
+        "genero": "romance",
+        "quantidade_estoque": 2,
+        "status_disponivel": true
+    }
+}
