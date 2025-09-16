@@ -1,0 +1,12 @@
+{
+    "1": {
+        "nome": "vovo",
+        "datanascimento": "17/12/1940",
+        "listalivrosautor": []
+    },
+    "2": {
+        "nome": "kakye",
+        "datanascimento": "20/05/2008",
+        "listalivrosautor": []
+    }
+}

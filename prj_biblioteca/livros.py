@@ -5,13 +5,13 @@ class Livro():
     #atributo da classe
     contador = 0
     def __init__(self, titulo, autor, genero, quantidade_estoque):
-        Livro.contador= int(verificar_maior_id())+1
+        Livro.contador= int(verificar_maior_id("livro"))+1
         self.id = str(Livro.contador)
         self.titulo = titulo
         self.autor = autor
         self.genero = genero
         self.quantidade_estoque = quantidade_estoque
-        self.statusdisponivel = True 
+        self.statusdisponivel = True
         
     # antes de emprestar, fazemos a verificação se esta disponivel, se estiver, tiramos 1 do estoque.
     def pegar_livro(self):

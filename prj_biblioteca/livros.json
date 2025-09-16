@@ -37,5 +37,31 @@
         "genero": "romance",
         "quantidade_estoque": 2,
         "status_disponivel": true
+    },
+    "4": {
+        "titulo": "macacos 2.0",
+        "autor": {
+            "1": {
+                "nome": "vovo",
+                "datanascimento": "17/12/1940",
+                "listalivrosautor": []
+            }
+        },
+        "genero": "romance",
+        "quantidade_estoque": 2,
+        "status_disponivel": true
+    },
+    "5": {
+        "titulo": "gabs",
+        "autor": {
+            "3": {
+                "nome": "vovo",
+                "datanascimento": "17/12/1940",
+                "listalivrosautor": []
+            }
+        },
+        "genero": "romance",
+        "quantidade_estoque": 2,
+        "status_disponivel": true
     }
 }

@@ -23,13 +23,14 @@ def adicionar_informacoes_livro(id, dados):
         print("ok")
     else:
         print("erro")
+
 #adicionar ao estoque de cada classe
 #no caso a primeira variavel é pra saber qual classe é e depois coloca em sua determinada classe
 def adicionar_ao_estoque(quem, objeto):
     if quem == "livros":
         id = objeto.id
         #titulo, autor, genero, statusdisponivel, numerodeemprestimos
-        informacoes = {"titulo": objeto.titulo, "autor": {objeto.autor.todict()[0]: objeto.autor.todict()[1]}, "genero": objeto.genero, "quantidade_estoque": objeto.quantidade_estoque, "status_disponivel":objeto.checarstatus()}
+        informacoes = {"titulo": objeto.titulo, "autor": {str(objeto.autor.id): objeto.autor.todict()}, "genero": objeto.genero, "quantidade_estoque": objeto.quantidade_estoque, "status_disponivel":objeto.checarstatus()}
         adicionar_informacoes_livro(id=id, dados=informacoes)
     elif quem == "autor":
         pass
@@ -39,19 +40,57 @@ def adicionar_ao_estoque(quem, objeto):
         input("Erro, chame um desenvolvedor")
 
 #funçoes pra carregar o id
-def verificar_maior_id():
-    dados = receber_informacoes_livro()
+def verificar_maior_id(quem):
+    if quem == "livro":
+        dados = receber_informacoes_livro()
+    elif quem == "autor":
+        dados = receber_informacoes_autor()
 
     if dados:
         ids_existentes = []
         for ids in dados.keys():
             ids_existentes.append(ids)
-            print(ids)
         return max(ids_existentes)
     else:
         return 1
 
-if __name__ == "__main__":
 
-    print(adicionar_ao_estoque("livros", l1))
-    print(adicionar_ao_estoque("livros", l2))
+#AUTORRRRRRRRRR
+def receber_informacoes_autor():
+    with open("autor.json", "r", encoding="utf-8") as f:
+        dados = json.load(f)
+        return dados
+def mandar_informacoes_autor(dados):
+    with open("autor.json", "w", encoding="utf-8") as f:
+        try:
+            json.dump(dados, f, indent=4, ensure_ascii=False)
+            return True
+        except:
+            return False
+def adicionar_informacoes_autor(id, dados):
+    recebido = receber_informacoes_autor()
+    recebido[id] = dados
+
+    if mandar_informacoes_autor(recebido):
+        print("ok")
+    else:
+        print("erro")
+
+def receber_e_verificar_data():
+    while True:
+        try:
+            datanascimento = input("informe a data de nascimento do autor[dd/mm/aaaa]: ")
+            datanascimento = datetime.strptime(datanascimento, "%d/%m/%Y").date()
+
+        except ValueError:
+            print('Data Inválida, digite novamente')
+
+        else:
+            return datanascimento
+            break
+
+if __name__ == "__main__":
+    print(receber_informacoes_autor())
+
+    adicionar_informacoes_autor()
+    
