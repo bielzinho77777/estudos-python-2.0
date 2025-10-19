@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        <label>Nome: <input type="text" name="nome" required></label><br>
+        <label>Telefone: <input type="text" name="telefone" required></label><br>
+        <label>Data entrada: <input type="date" name="data_entrada" required></label><br>
+        <label>Data saída: <input type="date" name="data_saida" required></label><br>
+        <button type="submit">Adicionar</button>
+    </form>
+</body>
+</html>

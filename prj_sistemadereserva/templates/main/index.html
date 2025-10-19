@@ -1,0 +1,141 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Reserva de Hotel</title>
+    <link rel="stylesheet" href="{% static 'css/main/style.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <div>
+                <img src="" alt="logo">
+                <h1>Sistema de Reserva de Hotel</h1>
+            </div>
+            <div>
+                <ul>
+                    <li><a href="{% url 'index' %}">Home</a></li>
+                    <li><a href="#bemvindo">Bem Vindo</a></li>
+                    <li><a href="#servicos">Lista de Serviços</a></li>
+                    <li><a href="#blog">Feed no Blog</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                    <li><a href="{% url 'disponivel' %}">Reservas</a></li>
+                    <li><a href="{% url 'agendamento' %}">Agendamentos Online</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="bemvindo">
+            <div>
+                <h1>Seja Bem-Vindo</h1>
+            </div>
+            <div>
+                <p>Descubra o conforto e a praticidade em nossas reservas exclusivas de hotel.</p>
+            </div>
+            <div>
+                <button type="button"><a href="{% url 'disponivel' %}">Saiba mais</a></button>
+            </div>
+        </section>
+
+        <section>
+            <img src="" alt="img1">
+            <img src="" alt="img2">
+            <img src="" alt="img3">
+        </section>
+
+        <section id="servicos">
+            <h2>Serviços</h2>
+            <div class="caixa-servicos">
+                <div>
+                    <h1>Nota de Hóspedes</h1>
+                    <hr>
+                    <p>$25</p>
+                    <button type="button"><a href="blog">Ver Mais</a></button>
+                </div>
+                <div>
+                    <h1>Tour Virtual</h1>
+                    <hr>
+                    <p>$20</p>
+                    <button type="button"><a href="{% url 'agendamento' %}">Agendar</a></button>
+                </div>
+                <div>
+                    <h1>Conferência de Reunião</h1>
+                    <hr>
+                    <p>$50</p>
+                    <button type="button"><a href="{% url 'agendamento' %}">Agendar</a></button>
+                </div>
+            </div>
+        </section>
+
+        <section id="blog">
+            <h2>Blog</h2>
+            <hr>
+            <div class="caixa-blog">
+                <div>
+                    <img src="" alt="img">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <hr>
+                    <div style="display: flex; justify-content: space-between;">
+                        <img src="" alt="olho-visualização">
+                        <p>0</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sobre">
+            <div class="caixa-sobre-topo">
+                <h2>Sobre Nós</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa in, voluptatem eos officiis non reprehenderit ut officia quae id culpa sint porro veritatis similique necessitatibus? Illum voluptatum a labore temporibus.</p>
+            </div>
+            <div class="caixa-sobre-bottom">
+                <div>
+                    <img src="" alt="img#">
+                </div>
+                <div>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias officia quia dolor aliquid sunt accusantium exercitationem beatae vero a asperiores porro veritatis quas, dolorum culpa optio incidunt sint, nihil voluptatum?
+                    </p>
+                    <button><a href="sobre">Saiba Mais</a></button>
+                </div>
+            </div>
+        </section>
+        <footer id="Contato" class="flex-column">
+            <div class="caixa-contato-1">
+                <h2>Contato</h2>
+                <p>Email*</p>
+                <div class="entrada-email">
+                    <input type="text">
+                    <button type="button">Submit</button>
+                </div>
+            </div>
+            <div class="caixa-contato-2">
+                <div>
+                    <div>
+                        <p>(11) 3456-7890</p>
+                        <p>info@meusite.com</p>
+                    </div>
+                    <div>
+                        <p>Rua Prates, 194 - Bom Retiro, São Paulo - SP, 01121-000</p>
+                    </div>
+                    <div>
+                        <img src="" alt="facebook">
+                        <img src="" alt="instagram">
+                        <img src="" alt="X">
+                        <img src="" alt="tik-tok">
+                    </div>
+                </div>
+            </div>
+            <div class="caixa-contato-3">
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid eveniet praesentium fugiat ducimus eaque mollitia, officiis est, rerum ullam minima sit. Numquam minima rerum dolorum corporis impedit ullam dolore cupiditate!
+                </p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi dolorum ullam suscipit neque, accusamus, nostrum pariatur asperiores voluptas officiis ut quo est. Enim placeat ullam natus suscipit in voluptates dolore?</p>
+            </div>
+        </footer>
+    </main>
+</body>
+</html>
