@@ -4,8 +4,6 @@ from main.models import Quarto, Reserva
 def index(request):
     return render(request, 'main/index.html')
 
-def reservas(request):
-    return render(request, 'main/reservas.html')
 
 def agendamento(request):
     return render(request, 'main/agendamento.html')
