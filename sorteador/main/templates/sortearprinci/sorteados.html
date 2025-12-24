@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/sortearprinci/sorteados.css' %}">
+</head>
+<body>
+    {% if erro %}
+        <h1>{{erro}}</h1>
+    {% endif %}
+    <ul>
+        {% for numero in page_obj %}
+            <li>{{ numero }}</li>
+        {% endfor %}
+    </ul>
+    {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}">Anterior</a>
+    {% endif %}
+    <p>Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}
+    </p>
+        {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}">Próximo</a>
+    {% endif %}
+    <br>
+    <a href="{% url 'refresh'%}"><button>Sortear novamente</button></a>
+    <br><a href="{% url 'index'%}"><button>Voltar</button></a>
+</body>
+</html>

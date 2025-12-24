@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/sortearprinci/style.css' %}">
+</head>
+<main class="sorteador">
+    <header class="sorteador__header">
+        <h1 class="sorteador__titulo">Sorteador</h1>
+        <p class="sorteador__sub">Informe o intervalo de números que deseja sortear</p>
+    </header>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit">Sortear</button>
+    </form>
+    
+
+    <!-- Aqui o servidor (Django) pode devolver o resultado renderizado -->
+    <section class="sorteador__resultado" aria-live="polite">
+        
+    </section>
+
+    <footer class="sorteador__footer">
+        <small>BD???? POST???? SESION????</small>
+    </footer>
+</main>
+</html>
